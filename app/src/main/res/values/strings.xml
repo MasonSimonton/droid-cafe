@@ -23,4 +23,8 @@
     <string name="froyo_order_message">You ordered a FroYo.</string>
     <string name="mOrderMessage"></string>
     <string name="phone_number">555-5555</string>
+    <string name="enter_note_hint">Enter Note</string>
+    <string name="same_day_messenger_service">Same Day Service</string>
+    <string name="next_day_ground_delivery">Next Day Ground Delivery</string>
+    <string name="pick_up">Pick Up</string>
 </resources>
