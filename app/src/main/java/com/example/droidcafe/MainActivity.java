@@ -110,15 +110,11 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Shows a message that the ice cream sandwich image was clicked.
      */
-    public void showIceCreamOrder(View view) {
-        displayToast(getString(R.string.ice_cream_order_message));
-    }
+    public void showIceCreamOrder(View view) {displayToast(getString(R.string.ice_cream_order_message)); }
 
     /**
      * Shows a message that the froyo image was clicked.
      */
-    public void showFroyoOrder(View view) {
-        displayToast(getString(R.string.froyo_order_message));
-    }
+    public void showFroyoOrder(View view) { displayToast(getString(R.string.froyo_order_message)); }
 
 }
