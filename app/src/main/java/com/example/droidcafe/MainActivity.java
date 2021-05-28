@@ -36,25 +36,29 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
         binding.fab.setOnClickListener(new View.OnClickListener() {
+
+            // on clicking shopping cart, load startOrder method made for dry purposes
             @Override
-            public void onClick(View view) {
-                /**
-                 * added if statement myself
-                 * on clicking shopping cart, check if message was set
-                 * if not, fail to load order
-                 * if yes, loads order with message
-                 */
-                if (mOrderMessage == null){
-                    Toast.makeText(getApplicationContext(), "no item selected!",
-                            Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    Intent intent = new Intent(MainActivity.this, OrderActivity.class);
-                    intent.putExtra(EXTRA_MESSAGE, mOrderMessage);
-                    startActivity(intent);
-                }
-            }
+            public void onClick(View view) { startOrder(); }
         });
+    }
+
+    /**
+     * added if statement myself
+     * check if item was selected
+     * if not, fail to load order
+     * if yes, loads order with message
+     */
+    public void startOrder(){
+        if (mOrderMessage == null){
+            Toast.makeText(getApplicationContext(), "no item selected!",
+                    Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Intent intent = new Intent(MainActivity.this, OrderActivity.class);
+            intent.putExtra(EXTRA_MESSAGE, mOrderMessage);
+            startActivity(intent);
+        }
     }
 
     @Override
@@ -69,11 +73,24 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.action_order:
+                startOrder();
+                return true;
+            case R.id.action_status:
+                displayToast(getString(R.string.action_status_message));
+                return true;
+            case R.id.action_favorites:
+                displayToast(getString(R.string.action_favorites_message));
+                return true;
+            case R.id.action_settings:
+                displayToast(getString(R.string.action_settings_message));
+                return true;
+            case R.id.action_contact:
+                displayToast(getString(R.string.action_contact_message));
+                return true;
+            default:
+                // Do nothing
         }
 
         return super.onOptionsItemSelected(item);
